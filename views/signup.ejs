@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>registry</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/navbar.css" >
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <script src="/js/buttons.js"></script>
+        <nav class="navbar navbar-default" id="nav">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Retriever</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <button class="btn" id="nav" onclick="toregistry()">Registry</button>
+                </ul>
+                <ul class="navbar navbar-nav">
+                    <button class="btn" id="nav" onclick="togignup()">Sign Up</button>
+                </ul>
+                
+
+
+            </div>
+        </nav>
+
+
+        <form action="/signup" id="form" class="form-vertical" method="POST">
+            <div class="input-group" id="cent">
+        
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" id=username" name="username" required>
+                <label for="username" id="em">User Name</label>
+            </div>
+            <div class="input-group" id="cent">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input type="email" id="email" name="email" required>
+                <label for="email" ">Email</label>
+            </div>
+            <div class="input-group" id="cent">
+        
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" id="password" name="password"  required>
+                <label for="password" id="em">Password</label>
+            </div>
+            <section>
+                <button id="POST" type="submit" class="btn">Sign up</button>
+            </section>
+        </form>
+  
+        
+        <p id="dbc"></p>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+
+*{
+    align-content: center;
+}
+.btn{
+    border: 5px;
+    border-style: groove;
+    background-color: gray;
+}
+
+form{
+    
+    padding-right: 200px;
+}
+#firstname{
+    border-radius: 5px;
+    height: fit-content;
+    width:fit-content ;
+}
+#lastname{
+    border-radius: 5px;
+    width: fit-content;
+    height: fit-content;
+}
+#email{
+    border-radius: 5px;
+    height: fit-content;
+    width:fit-content ;
+}
+
+.btn{
+    align-self: center;
+}
+#navbar navbar-default{
+    background-color: aqua;
+}
+#form{ 
+    border-style: groove;
+    background-color: cornflowerblue;
+}
