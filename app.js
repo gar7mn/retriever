@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV != 'production') {
     require('dotenv').config()
 }
-s
+
 const express = require('express')
 const PORT = 3000
 const app = express()
@@ -55,7 +55,7 @@ app.use('/css',express.static(__dirname+'/public/css'))
 app.use('/database',express.static(__dirname+'/database'))
 app.use('/',express.static(__dirname+'/views'))
 
-app.get('/',checkAuthenticated,(req,res)=> res.render('index.ejs'))
+app.get('/',(req,res)=> res.render('index.ejs'))
 //create a querry for inserting data into the database
 app.get('/register',(req,res)=>res.render('register.ejs'))
 app.get('/signup',(req,res)=>res.render('signup.ejs'))
