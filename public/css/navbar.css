@@ -4,5 +4,21 @@
 }
 .btn{
     height: 50px;
-    
+}
+input{
+    background-color: paleturquoise;
+}
+html{
+    align-content: center;
+}
+form{
+    background-color: palevioletred;
+    align-content: center;
+}
+html{
+    background-color: cornflowerblue;
+}
+#POST{
+    background-color: paleturquoise;
+    height: auto;
 }
