@@ -131,3 +131,5 @@ function checkAuthenticated(req,res,next){
 all()
 
 app.listen(PORT, () => console.log(`app listening on port ${PORT}!`))
+
+module.exports = app
