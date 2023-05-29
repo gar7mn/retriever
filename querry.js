@@ -1,4 +1,5 @@
 const connection = require('./db')
+const app = require('./app')
 
 // connection.connect(function(err){
 //     if (err) throw err;
@@ -19,14 +20,4 @@ function get_email(email){
     });
 }
 
-function all(){
-    connection.query(`SELECT * from accounts`,function art(err,result,fields){
-        if (err) throw err;
-        
-        return result
-    });
-    
-}
 
-
-module.exports = all

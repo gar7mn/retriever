@@ -26,7 +26,7 @@ app.use(express.static('public'))
 
 
 const connection = require('./db')
-const all = require('./querry')
+
 
 
 
@@ -84,7 +84,7 @@ app.post('/signup',async (req,res)=>{
 app.post('/register', async (req,res)=>{
     try {
         //const hashedpassword =  await bcrypt.hash(req.body.password,10)
-        singleRowInsert(req.body.firstname,req.body.lastname,req.body.email)
+        singleRowInsert(req.body.firstname,req.body.lastname,req.body.email,req.body.number)
         // users.push({
         //     id: '1',
         //     name: req.body.name,
@@ -102,20 +102,21 @@ app.post('/register', async (req,res)=>{
 })
 //here we setup the login post 
 app.post('/login')
-let singleRowInsert = (first_name,last_name,user_email) => {
+let singleRowInsert = (first_name,last_name,user_email, user_num) => {
 
 	let query = `INSERT INTO directory
-		( id,firstname, lastname, email) VALUES (?, ?, ?,?);`;
+		( id,firstname, lastname, email, number) VALUES (?, ?, ?,?,?);`;
 
 	// Value to be inserted
 	let id = Date.now().toString()
 	let firstname =  first_name
     let lastname = last_name
     let email =  user_email
+    let number = user_num
 
 	// Creating queries
 	connection.query(query, [id,
-	firstname,lastname,email], (err, rows) => {
+	firstname,lastname,email,number], (err, rows) => {
 		if (err) throw err;
 		console.log("Row inserted with id = "
 			+ id);
@@ -128,8 +129,7 @@ function checkAuthenticated(req,res,next){
     }
     res.redirect('/login')
 }
-all()
 
 app.listen(PORT, () => console.log(`app listening on port ${PORT}!`))
 
-module.exports = app
+module.exports = app;
