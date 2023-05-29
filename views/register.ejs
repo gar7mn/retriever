@@ -12,7 +12,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
-    <body>
+    <body id="body">
         <script src="/js/buttons.js"></script>
         <nav class="navbar navbar-default" id="nav">
             <div class="container-fluid">
@@ -53,6 +53,12 @@
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                 <input type="email" id="email" name="email" required>
                 <label for="email" id="em">Email</label>
+            </div>
+            <div class="input-group" id="cent">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                <input type="text" id="number" name="number" required>
+                <label for="number" id="em">Phone Number</label>
+
             </div>
             <section>
                 <button id="POST" type="submit" class="btn">Submit</button>
