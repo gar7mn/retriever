@@ -5,7 +5,8 @@ const connection = mysql.createConnection({
     database:process.env.DATABASE,
     user:process.env.USER,
     password:process.env.PASSWORD,
-    host:process.env.HOST
+    host:process.env.HOST,
+    rowsAsArray:true
 })
 var name = 'grant'
 //connection.query(`select * from directory where firstname = ${name}`).sql

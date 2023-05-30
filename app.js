@@ -15,6 +15,7 @@ const bcrypt = require('bcrypt')
 //add passport initializer
 const initializepassport = require('./passportconfig')
 const passport = require("passport")
+const get_email = require('./querry')
 //init passport
 initializepassport(passport,email=> users.find(user=>user.email ===email,
      id=>users.find(user=>user.id === id)))
@@ -26,6 +27,7 @@ app.use(express.static('public'))
 
 
 const connection = require('./db')
+const searcher = require('./querry')
 
 
 
@@ -60,6 +62,7 @@ app.get('/',(req,res)=> res.render('index.ejs'))
 app.get('/register',(req,res)=>res.render('register.ejs'))
 app.get('/signup',(req,res)=>res.render('signup.ejs'))
 app.get('/login',(req,res)=>res.render('login.ejs'))
+app.get('/search',(req,res)=>res.render('search.ejs'))
 //post login
 
 app.post('/login',passport.authenticate('local',{
@@ -80,7 +83,23 @@ app.post('/signup',async (req,res)=>{
     }
     
 })
-
+//at the very least i can log the result of the search to console
+app.post('/search',async (req,res)=>{
+    try{
+        connection.query('SELECT * FROM directory WHERE firstname = ?;',[req.body.firstname],function(err,result,fields){
+            
+            //play with this some more to get the pages to render the arrays properly.
+            id = result[0][0],
+            fname = result[0][1]
+            lname = result[0][2]
+            email = result[0][3]
+            num = result[0][4]
+            res.send(email);
+            //possibly implement a searching algorithim of some kind to get specific items in an array.
+        })
+    }
+    catch (err){throw err}
+})
 app.post('/register', async (req,res)=>{
     try {
         //const hashedpassword =  await bcrypt.hash(req.body.password,10)
@@ -95,10 +114,10 @@ app.post('/register', async (req,res)=>{
         //console.log(users.length)
         res.redirect('/register')
     } catch {
-        console.log('cock')
+        console.log('shoot')
     }
     //console.log(users)
-    console.log('a')
+    
 })
 //here we setup the login post 
 app.post('/login')

@@ -10,3 +10,6 @@ function tosignup(){
 function tologin(){
     window.location.href = '/login'
 }
+function tosearch(){
+    window.location.href = '/search'
+}

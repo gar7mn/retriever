@@ -11,13 +11,25 @@ const app = require('./app')
 //place the querry and the result printout in a function so it can be printed to log.
 const a = 'g'
 const users = [];
-function get_email(email){
-    connection.query(`SELECT email from accounts where email = '${email}'`,function(err,result,fields){
+function get_email(firstname){
+    connection.query(`SELECT email from directory where firstname = '${firstname}'`,function(err,result,fields){
         if (err) throw err;
         
-        users.push(result)
+        
         console.log(result)
+        return result;
+        
     });
+    
 }
 
+let searcher = (firstname)=>{
+    let query = `SELECT * FROM directory WHERE firstname = ?;`;
 
+    connection.query(query,[firstname],function cb(err,result,fields){
+        v = result
+        
+    })
+    
+}
+module.exports = get_email;

@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Search</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/navbar.css" >
@@ -28,23 +28,21 @@
                 <ul class="navbar navbar-nav">
                     <button class="btn" id="nav" onclick="tosignup()">Sign Up</button>
                 </ul>
-                <ul class="navbar navbar-nav">
-                    <button class="btn" id="nav" onclick="tosearch()">Search</button>
-                </ul>
             </div>
         </nav>
 
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Example
-                <span class="caret"></span>
-            </button>
 
-        
-            <ul class="dropdown-menu">
-                <li><a href="#">LOL</a></li>
-                <li><a href="#">LOL</a></li>
-            </ul>
-        </div>    
-         <p id="dbc">The goal of this app is to be a web interface to write to and search a database</p>
+        <form action="/search" class="form-vertical" method="POST">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="search" id="firstname" name="firstname" required>
+                <label for="firstname">Search by firstname</label>
+            </div>
+            <section>
+                <button id="POST" type="submit" class="btn">Search</button>
+            </section>
+        </form>
+            
+         <p id="results"></p>
     </body>
 </html>
