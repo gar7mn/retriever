@@ -14,7 +14,11 @@ form{
     align-content: center;
 }
 html{
+    background-color: lightblue;
+}
+body{
     background-color: cornflowerblue;
+    
 }
 #POST{
     background-color: paleturquoise;
