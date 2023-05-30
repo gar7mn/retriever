@@ -1,3 +1,10 @@
 # retriever
 
-Just trying to configure passport-local with mysql
+A web interface for querying with mysql.
+
+
+# Launching the app.
+Create a file and name it 
+```
+npm run start
+```
