@@ -1,7 +1,29 @@
 *{
     align-content: center;
 }
+input{
+    width: 300px;
+}
+.input-group{
+    align-content: center;
+    text-align: center;
 
+}
+#nav{
+    background-color: palegreen;
+    
+}
+.btn{
+    height: 50px;
+    
+}
+.form-vertical{border-style: groove; background-color: cadetblue;}
+#POST{ background-color: darkgrey;
+       height: 40px;
+       
 
-.form-vertical{border-style: groove;}
-#POST{ background-color: darkgrey;}
+}
+
+html{
+    background-color: cornflowerblue;
+}
