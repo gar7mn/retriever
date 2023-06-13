@@ -10,7 +10,7 @@ html{
     align-content: center;
 }
 form{
-    background-color: palevioletred;
+    background-color: cadetblue;
     align-content: center;
 }
 html{
@@ -21,6 +21,6 @@ body{
     
 }
 #POST{
-    background-color: paleturquoise;
+    background-color: gray;
     height: auto;
 }
