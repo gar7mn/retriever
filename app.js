@@ -86,7 +86,7 @@ app.post('/signup',async (req,res)=>{
 //at the very least i can log the result of the search to console
 app.post('/search',async (req,res)=>{
     try{
-        connection.query('SELECT * FROM directory WHERE firstname = ?;',[req.body.firstname],function(err,result,fields){
+        connection.query('SELECT * FROM directory WHERE firstname = ? AND lastname = ?;',[req.body.firstname,req.body.lastname],function(err,result,fields){
             
             //play with this some more to get the pages to render the arrays properly.
             if (result.length == 1) {
