@@ -86,15 +86,22 @@ app.post('/signup',async (req,res)=>{
 //at the very least i can log the result of the search to console
 app.post('/search',async (req,res)=>{
     try{
-        connection.query('SELECT * FROM directory WHERE firstname = ?;',[req.body.firstname],function(err,result,fields){
+        connection.query('SELECT * FROM directory WHERE firstname = ? AND lastname = ?;',[req.body.firstname,req.body.lastname],function(err,result,fields){
             
             //play with this some more to get the pages to render the arrays properly.
-            id = result[0][0],
-            fname = result[0][1]
-            lname = result[0][2]
-            email = result[0][3]
-            num = result[0][4]
-            res.send(email);
+            if (result.length == 1) {
+                id = result[0][0],
+                fname = result[0][1]
+                lname = result[0][2]
+                email = result[0][3]
+                num = result[0][4] 
+            }
+            else{
+               res.send(result) 
+            }
+            datasrting = `firstname: ${fname}. lastname: ${lname}. email: ${email}. phone: ${num}`
+            res.send(datasrting)
+            
             //possibly implement a searching algorithim of some kind to get specific items in an array.
         })
     }

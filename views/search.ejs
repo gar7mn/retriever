@@ -31,15 +31,21 @@
             </div>
         </nav>
 
-
         <form action="/search" class="form-vertical" method="POST">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
                 <input type="search" id="firstname" name="firstname" required>
-                <button id="POST" type="submit" class="btn btn-default" >Search</button>
-                <label for="firstname">Search by firstname</label>
+                
             </div>
-            
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input type="search" id="lastname" name="lastname" required>
+                
+            </div>
+            <section>
+                <button id="POST" type="submit" class="btn btn-default" >Search</button>
+                <label>Search by Name</label>
+            </section>
         </form>
             
          <p id="results"></p>
