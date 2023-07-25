@@ -13,3 +13,6 @@ function tologin(){
 function tosearch(){
     window.location.href = '/search'
 }
+function todirectory(){
+    window.location.href = '/showall'
+}

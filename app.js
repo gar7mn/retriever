@@ -16,6 +16,7 @@ const bcrypt = require('bcrypt')
 const initializepassport = require('./passportconfig')
 const passport = require("passport")
 const get_email = require('./querry')
+const showall = require("./public/js/ext")
 //init passport
 initializepassport(passport,email=> users.find(user=>user.email ===email,
      id=>users.find(user=>user.id === id)))
@@ -28,6 +29,7 @@ app.use(express.static('public'))
 
 const connection = require('./db')
 const searcher = require('./querry')
+
 
 
 
@@ -63,6 +65,11 @@ app.get('/register',(req,res)=>res.render('register.ejs'))
 app.get('/signup',(req,res)=>res.render('signup.ejs'))
 app.get('/login',(req,res)=>res.render('login.ejs'))
 app.get('/search',(req,res)=>res.render('search.ejs'))
+app.get('/showall',(req,res)=>{
+    connection.query('SELECT * FROM directory',function(err,result,fields){
+        res.send(result)
+    })
+})
 //post login
 
 app.post('/login',passport.authenticate('local',{
@@ -86,7 +93,7 @@ app.post('/signup',async (req,res)=>{
 //at the very least i can log the result of the search to console
 app.post('/search',async (req,res)=>{
     try{
-        connection.query('SELECT * FROM directory WHERE firstname = ?;',[req.body.firstname],function(err,result,fields){
+        connection.query('SELECT * FROM directory WHERE firstname = ? AND lastname = ?;',[req.body.firstname,req.body.lastname],function(err,result,fields){
             
             //play with this some more to get the pages to render the arrays properly.
             id = result[0][0],
@@ -94,7 +101,7 @@ app.post('/search',async (req,res)=>{
             lname = result[0][2]
             email = result[0][3]
             num = result[0][4]
-            res.send(email);
+            res.send(`First Name:${fname}, Last Name: ${lname}, email: ${email}, Phone Number: ${num}`);
             //possibly implement a searching algorithim of some kind to get specific items in an array.
         })
     }

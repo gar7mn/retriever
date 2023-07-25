@@ -34,14 +34,24 @@
 
         <form action="/search" class="form-vertical" method="POST">
             <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                
                 <input type="search" id="firstname" name="firstname" required>
-                <button id="POST" type="submit" class="btn btn-default" >Search</button>
-                <label for="firstname">Search by firstname</label>
+                <label for="firstname">First Name</label>
             </div>
+            <div class="input-group">
+                <input type="search" id="lastname" name="lastname" required>
+                <label for="lastname">Last Name</label>
+            </div>
+            <section>
+                <button id="POST" type="submit" class="btn btn-default" >Search</button>
+            </section>
             
         </form>
-            
+        
+        </div>
+        <div class="container-fluid" id="fl">
+            <button class="btn btn-default" type="button" id="POST" onclick="todirectory()">Show Directory</button>
+        </div>     
          <p id="results"></p>
     </body>
 </html>
